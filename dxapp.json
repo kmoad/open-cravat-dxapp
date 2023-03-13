@@ -1,0 +1,111 @@
+{
+  "name": "open-cravat",
+  "title": "OpenCRAVAT",
+  "summary": "Modular variant annotation",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "inputSpec": [
+    {
+      "name": "input_file",
+      "label": "Variants",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*"
+      ],
+      "help": "Input file containing variants"
+    },
+    {
+      "name": "annotators",
+      "label": "Annotators",
+      "class": "array:string",
+      "optional": false,
+      "help": "Annotators to include",
+      "choices":[
+        "clinvar",
+        "go",
+        "vest"
+      ]
+    },
+    {
+      "name": "genome",
+      "label": "Genome",
+      "class": "string",
+      "optional": false,
+      "choices":[
+        "hg38",
+        "hg19",
+        "hg18"
+      ],
+      "help": "Genome of input file"
+    },
+    {
+      "name": "store_url",
+      "label": "Module Store URL",
+      "class": "string",
+      "optional": false,
+      "choices":[
+        "https://opencravat-store-aws.s3.amazonaws.com",
+        "https://opencravat-store-eu-west-2.s3.amazonaws.com",
+        "https://store.opencravat.org"
+      ],
+      "default":"https://opencravat-store-aws.s3.amazonaws.com",
+      "help": "Module source"
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "sqlite",
+      "label": "Annotated Variants",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "log",
+      "label": "Log",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "err",
+      "label": "Error List",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 24
+      }
+    },
+    "interpreter": "bash",
+    "file": "src/open-cravat.sh",
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0"
+  },
+  "access": {
+    "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x8"
+        }
+      }
+    }
+  }
+}
