@@ -25,6 +25,8 @@ main() {
     echo "Value of genome: '$genome'"
     echo "Value of store_url: '$store_url'"
 
+    containerRef='karchinlab/opencravat:latest'
+
     # The following line(s) use the dx command-line tool to download your file
     # inputs to the local file system using variable names for the filenames. To
     # recover the original filenames, you can use the output of "dx describe
@@ -54,12 +56,14 @@ main() {
     
     # Set store to S3 mirror
     mkdir conf
+    docker pull $containerRef
+    docker run $containerRef oc version
     docker run \
         -v $PWD/conf:/mnt/newconf \
-        karchinlab/opencravat:latest cp /mnt/conf/cravat-system.yml /mnt/newconf
+        $containerRef cp /mnt/conf/cravat-system.yml /mnt/newconf
     docker run \
         -v $PWD/conf:/mnt/newconf \
-        karchinlab/opencravat:latest cp /mnt/conf/cravat.yml /mnt/newconf
+        $containerRef cp /mnt/conf/cravat.yml /mnt/newconf
     sed -i conf/cravat-system.yml -e '/store_url/d'
     echo "store_url: $store_url" >> conf/cravat-system.yml
 
@@ -68,7 +72,11 @@ main() {
     docker run \
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
-        karchinlab/opencravat:latest oc module install-base
+        $containerRef oc module install-base
+    docker run \
+        -v $PWD/md:/mnt/modules \
+	    -v $PWD/conf:/mnt/conf \
+        $containerRef oc module install vcfreporter
     # docker run \
     #     -v $PWD/md:/mnt/modules \
 	#     -v $PWD/conf:/mnt/conf \
@@ -76,7 +84,7 @@ main() {
     docker run \
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
-        karchinlab/opencravat:latest oc module install -y $package
+        $containerRef oc module install -y $package
     
     # Run job
     mkdir job
@@ -86,7 +94,17 @@ main() {
 	    -v $PWD/conf:/mnt/conf \
         -v $PWD/job:/tmp/job \
         -w /tmp/job \
-        karchinlab/opencravat:latest oc run "$input_fn" --package $package -l $genome
+        $containerRef oc run "$input_fn" --package $package -l $genome
+
+    # Run vcf report
+    docker run \
+        -v $PWD/md:/mnt/modules \
+	    -v $PWD/conf:/mnt/conf \
+        -v $PWD/job:/tmp/job \
+        -w /tmp/job \
+        $containerRef oc report "$input_fn".sqlite -t vcf
+    
+    gzip "job/$input_fn.vcf"
 
     # The following line(s) use the utility dx-jobutil-add-output to format and
     # add output variables to your job's output as appropriate for the output
@@ -98,8 +116,10 @@ main() {
     sqlite=$(dx upload "job/$input_fn.sqlite" --brief)
     log=$(dx upload "job/$input_fn.log" --brief)
     err=$(dx upload "job/$input_fn.err" --brief)
+    vcf=$(dx upload "job/$input_fn.vcf.gz" --brief)
 
     dx-jobutil-add-output sqlite "$sqlite" --class=file
     dx-jobutil-add-output log "$log" --class=file
     dx-jobutil-add-output err "$err" --class=file
+    dx-jobutil-add-output vcf "$vcf" --class=file
 }

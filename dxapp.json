@@ -29,18 +29,6 @@
       ]
     },
     {
-      "name": "annotators",
-      "label": "Annotators",
-      "class": "array:string",
-      "optional": true,
-      "help": "Annotators to include",
-      "choices":[
-        "clinvar",
-        "go",
-        "vest"
-      ]
-    },
-    {
       "name": "genome",
       "label": "Genome",
       "class": "string",
@@ -51,6 +39,18 @@
         "hg18"
       ],
       "help": "Genome of input file"
+    },
+    {
+      "name": "annotators",
+      "label": "Annotators",
+      "class": "array:string",
+      "optional": true,
+      "help": "Annotators to include",
+      "choices":[
+        "clinvar",
+        "go",
+        "vest"
+      ]
     },
     {
       "name": "store_url",
@@ -88,6 +88,15 @@
     {
       "name": "err",
       "label": "Error List",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "vcf",
+      "label": "Annotated VCF Output",
       "class": "file",
       "patterns": [
         "*"
