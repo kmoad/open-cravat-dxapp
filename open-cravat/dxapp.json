@@ -41,18 +41,6 @@
       "help": "Genome of input file"
     },
     {
-      "name": "annotators",
-      "label": "Annotators",
-      "class": "array:string",
-      "optional": true,
-      "help": "Annotators to include",
-      "choices":[
-        "clinvar",
-        "go",
-        "vest"
-      ]
-    },
-    {
       "name": "store_url",
       "label": "Module Store URL",
       "class": "string",
@@ -64,6 +52,13 @@
       ],
       "default":"https://opencravat-store-aws.s3.amazonaws.com",
       "help": "Module source"
+    },
+    {
+      "name": "annotators",
+      "label": "Additional annotators",
+      "class": "array:string",
+      "optional": true,
+      "help": "Additional annotators to run. Comma delimited list of annotator names"
     }
   ],
   "outputSpec": [

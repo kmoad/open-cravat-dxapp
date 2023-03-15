@@ -25,7 +25,15 @@ main() {
     echo "Value of genome: '$genome'"
     echo "Value of store_url: '$store_url'"
 
+    if (( ${#annotators[@]} ));
+    then
+        addtlAnnotators=true
+    else
+        addtlAnnotators=false
+    fi
+
     containerRef='karchinlab/opencravat:latest'
+    docker pull $containerRef
 
     # The following line(s) use the dx command-line tool to download your file
     # inputs to the local file system using variable names for the filenames. To
@@ -56,8 +64,6 @@ main() {
     
     # Set store to S3 mirror
     mkdir conf
-    docker pull $containerRef
-    docker run $containerRef oc version
     docker run \
         -v $PWD/conf:/mnt/newconf \
         $containerRef cp /mnt/conf/cravat-system.yml /mnt/newconf
@@ -77,24 +83,34 @@ main() {
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
         $containerRef oc module install -y vcfreporter
-    # docker run \
-    #     -v $PWD/md:/mnt/modules \
-	#     -v $PWD/conf:/mnt/conf \
-    #     karchinlab/opencravat:latest oc module install -y ${annotators[@]}
     docker run \
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
         $containerRef oc module install -y $package
     
+    # Install additional annotators
+    if [ $addtlAnnotators = true ]
+    then
+        docker run \
+            -v $PWD/md:/mnt/modules \
+            -v $PWD/conf:/mnt/conf \
+            $containerRef oc module install -y ${annotators[@]}
+    fi
+    
     # Run job
     mkdir job
     mv $input_fn job
+    runArgs=(oc run "$input_fn" "--package" "$package" "-l" "$genome")
+    if [ $addtlAnnotators = true ]
+    then
+        runArgs+=("-a" ${annotators[@]})
+    fi
     docker run \
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
         -v $PWD/job:/tmp/job \
         -w /tmp/job \
-        $containerRef oc run "$input_fn" --package $package -l $genome
+        $containerRef ${runArgs[@]}
 
     # Run vcf report
     docker run \
