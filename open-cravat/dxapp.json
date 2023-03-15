@@ -11,7 +11,8 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*.vcf",
+        "*.vcf.gz"
       ],
       "help": "Input file containing variants"
     },
