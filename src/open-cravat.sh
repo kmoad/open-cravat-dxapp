@@ -76,7 +76,7 @@ main() {
     docker run \
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
-        $containerRef oc module install vcfreporter
+        $containerRef oc module install -y vcfreporter
     # docker run \
     #     -v $PWD/md:/mnt/modules \
 	#     -v $PWD/conf:/mnt/conf \
