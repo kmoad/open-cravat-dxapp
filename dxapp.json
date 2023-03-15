@@ -16,10 +16,23 @@
       "help": "Input file containing variants"
     },
     {
+      "name": "package",
+      "label": "Package",
+      "class": "string",
+      "optional": true,
+      "help": "Analysis package to use",
+      "choices":[
+        "drug_interaction",
+        "pathogenic",
+        "rare_coding",
+        "splicing"
+      ]
+    },
+    {
       "name": "annotators",
       "label": "Annotators",
       "class": "array:string",
-      "optional": false,
+      "optional": true,
       "help": "Annotators to include",
       "choices":[
         "clinvar",

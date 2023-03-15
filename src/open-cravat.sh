@@ -20,6 +20,7 @@ main() {
     set -x
 
     echo "Value of input_file: '$input_file'"
+    echo "Value of package: '$package'"
     echo "Value of annotators: '${annotators[@]}'"
     echo "Value of genome: '$genome'"
     echo "Value of store_url: '$store_url'"
@@ -68,10 +69,14 @@ main() {
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
         karchinlab/opencravat:latest oc module install-base
+    # docker run \
+    #     -v $PWD/md:/mnt/modules \
+	#     -v $PWD/conf:/mnt/conf \
+    #     karchinlab/opencravat:latest oc module install -y ${annotators[@]}
     docker run \
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
-        karchinlab/opencravat:latest oc module install -y ${annotators[@]}
+        karchinlab/opencravat:latest oc module install -y $package
     
     # Run job
     mkdir job
@@ -81,7 +86,7 @@ main() {
 	    -v $PWD/conf:/mnt/conf \
         -v $PWD/job:/tmp/job \
         -w /tmp/job \
-        karchinlab/opencravat:latest oc run "$input_fn" -a ${annotators[@]} -l $genome
+        karchinlab/opencravat:latest oc run "$input_fn" --package $package -l $genome
 
     # The following line(s) use the utility dx-jobutil-add-output to format and
     # add output variables to your job's output as appropriate for the output
