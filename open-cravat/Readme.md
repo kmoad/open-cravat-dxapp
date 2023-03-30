@@ -32,7 +32,7 @@ https://open-cravat.readthedocs.io/en/latest/index.html
 
 | Package Name | Description | Included Annotators |
 | ------------ | ------------------- | ------- |
-| default | The default package includes a wide range of popular annotation modules to provide a strong overview of a variant. | `clinvar`, `go`, `etc...`  |
+| default | The default package includes a wide range of popular annotation modules to provide a strong overview of a variant. | `gnomAD3`, `clinvar`, `cosmic`, `GO`, `polyphen2`, `sift`, `vest`, `chasmplus`, `revel`, `cadd_exome`, `dann_coding` |
 | drug_interaction | Identify variants with potential impact on drug reponse. | `clinvar`, `pharmgkb`, `clingen`, `dgi` |
 | hereditary | Reports on variants in a list of genes implicated in nine hereditary cancer types by the [Cancer Gene Census](https://cancer.sanger.ac.uk/census) | `clinvar`, `cosmic`, `dbsnp`, `gnomad3`, `oncokb`, `cgc` |
 | pathogenic | Identifies variants that have been annotated as being associated with disease. |  `clinvar`, `clinvar_acmg`, `denovo`, `gwas_catalog`, `clingen` |
