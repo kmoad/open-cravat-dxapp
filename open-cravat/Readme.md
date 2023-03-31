@@ -4,7 +4,7 @@ OpenCRAVAT performs genomic variant interpretation including variant impact, ann
 
 OpenCRAVAT has a modular architecture with a wide variety of analysis modules that can be selected and run based on the needs of a given study. The modules are made available via the CRAVAT Store and are developed both by the CRAVAT team and the broader variant analysis community. This DNAnexus app uses packages of related modules to streamline the selection of modules.
 
-OpenCRAVAT is a product of the [Karchin Lab](https://karchinlab.org) at [Johns Hopkins University](https://jhu.edu) in collaboration with [In Silico Solutions](http://insilico.us.com/) with funding provided by the National Cancer Institute’s [ITCR](https://itcr.cancer.gov/) program.
+OpenCRAVAT is a product of the [Karchin Lab](https://karchinlab.org) at [Johns Hopkins University](https://jhu.edu) with funding provided by the National Cancer Institute’s [ITCR](https://itcr.cancer.gov/) program.
 
 ## What does this app do?
 
