@@ -1,0 +1,253 @@
+name: hg38
+title: UCSC hg38 Gene Mapper
+version: 1.9.8
+type: mapper
+description: Gene mapper using UCSC Gencode
+developer:
+  name: 'Rick Kim'
+  organization: 'In Silico Solutions'
+  email: 'support@cravat.su'
+  website: 'http://www.insilico.us.com'
+  citation: ''
+report_substitution:
+  so:
+    PTR: processed_transcript
+    TU1: transcribed_unprocessed_pseudogene
+    UNP: unprocessed_pseudogene
+    MIR: miRNA
+    LNC: lnc_RNA
+    PPS: processed_pseudogene
+    SNR: snRNA
+    TPR: transcribed_processed_pseudogene
+    RTI: retained_intron
+    NMD: NMD_transcript_variant
+    MCR: misc_RNA
+    UNT: unconfirmed_transcript
+    PSE: pseudogene
+    TU2: transcribed_unitary_pseudogene
+    NSD: NSD_transcript
+    SNO: snoRNA
+    SCA: scaRNA
+    PRR: pseudogene_rRNA
+    UPG: unitary_pseudogene
+    PPG: polymorphic_pseudogene
+    RRN: rRNA
+    IVP: IG_V_pseudogene
+    RIB: ribozyme
+    SRN: sRNA
+    TVG: TR_V_gene
+    TVP: TR_V_pseudogene
+    TDG: TR_D_gene
+    TJG: TR_J_gene
+    TCG: TR_C_gene
+    TJP: TR_J_pseudogene
+    ICG: IG_C_gene
+    ICP: IG_C_pseudogene
+    IJG: IG_J_gene
+    IJP: IG_J_pseudogene
+    IDG: IG_D_gene
+    IVG: IG_V_gene
+    IGP: IG_pseudogene
+    TPP: translated_processed_pseudogene
+    SCR: scRNA
+    VLR: vault_RNA
+    TUP: translated_unprocessed_pseudogene
+    MTR: Mt_tRNA
+    MRR: Mt_rRNA
+    2KD: 2kb_downstream_variant
+    2KU: 2kb_upstream_variant
+    UT3: 3_prime_UTR_variant
+    UT5: 5_prime_UTR_variant
+    INT: intron_variant
+    UNK: unknown
+    SYN: synonymous_variant
+    MRT: start_retained_variant
+    STR: stop_retained_variant
+    MIS: missense_variant
+    CSS: complex_substitution
+    STL: stop_lost
+    SPL: splice_site_variant
+    STG: stop_gained
+    FSD: frameshift_truncation
+    FSI: frameshift_elongation
+    INI: inframe_insertion
+    IND: inframe_deletion
+    MLO: start_lost
+    EXL: exon_loss_variant
+    TAB: transcript_ablation
+  all_so:
+    PTR: processed_transcript
+    TU1: transcribed_unprocessed_pseudogene
+    UNP: unprocessed_pseudogene
+    MIR: miRNA
+    LNC: lnc_RNA
+    PPS: processed_pseudogene
+    SNR: snRNA
+    TPR: transcribed_processed_pseudogene
+    RTI: retained_intron
+    NMD: NMD_transcript_variant
+    MCR: misc_RNA
+    UNT: unconfirmed_transcript
+    PSE: pseudogene
+    TU2: transcribed_unitary_pseudogene
+    NSD: NSD_transcript
+    SNO: snoRNA
+    SCA: scaRNA
+    PRR: pseudogene_rRNA
+    UPG: unitary_pseudogene
+    PPG: polymorphic_pseudogene
+    RRN: rRNA
+    IVP: IG_V_pseudogene
+    RIB: ribozyme
+    SRN: sRNA
+    TVG: TR_V_gene
+    TVP: TR_V_pseudogene
+    TDG: TR_D_gene
+    TJG: TR_J_gene
+    TCG: TR_C_gene
+    TJP: TR_J_pseudogene
+    ICG: IG_C_gene
+    ICP: IG_C_pseudogene
+    IJG: IG_J_gene
+    IJP: IG_J_pseudogene
+    IDG: IG_D_gene
+    IVG: IG_V_gene
+    IGP: IG_pseudogene
+    TPP: translated_processed_pseudogene
+    SCR: scRNA
+    VLR: vault_RNA
+    TUP: translated_unprocessed_pseudogene
+    MTR: Mt_tRNA
+    MRR: Mt_rRNA
+    2KD: 2kb_downstream_variant
+    2KU: 2kb_upstream_variant
+    UT3: 3_prime_UTR_variant
+    UT5: 5_prime_UTR_variant
+    INT: intron_variant
+    UNK: unknown
+    SYN: synonymous_variant
+    MRT: start_retained_variant
+    STR: stop_retained_variant
+    MIS: missense_variant
+    CSS: complex_substitution
+    STL: stop_lost
+    SPL: splice_site_variant
+    STG: stop_gained
+    FSD: frameshift_truncation
+    FSI: frameshift_elongation
+    INI: inframe_insertion
+    IND: inframe_deletion
+    MLO: start_lost
+    EXL: exon_loss_variant
+    TAB: transcript_ablation
+  all_mappings:
+    PTR: processed_transcript
+    TU1: transcribed_unprocessed_pseudogene
+    UNP: unprocessed_pseudogene
+    MIR: miRNA
+    LNC: lnc_RNA
+    PPS: processed_pseudogene
+    SNR: snRNA
+    TPR: transcribed_processed_pseudogene
+    RTI: retained_intron
+    NMD: NMD_transcript_variant
+    MCR: misc_RNA
+    UNT: unconfirmed_transcript
+    PSE: pseudogene
+    TU2: transcribed_unitary_pseudogene
+    NSD: NSD_transcript
+    SNO: snoRNA
+    SCA: scaRNA
+    PRR: pseudogene_rRNA
+    UPG: unitary_pseudogene
+    PPG: polymorphic_pseudogene
+    RRN: rRNA
+    IVP: IG_V_pseudogene
+    RIB: ribozyme
+    SRN: sRNA
+    TVG: TR_V_gene
+    TVP: TR_V_pseudogene
+    TDG: TR_D_gene
+    TJG: TR_J_gene
+    TCG: TR_C_gene
+    TJP: TR_J_pseudogene
+    ICG: IG_C_gene
+    ICP: IG_C_pseudogene
+    IJG: IG_J_gene
+    IJP: IG_J_pseudogene
+    IDG: IG_D_gene
+    IVG: IG_V_gene
+    IGP: IG_pseudogene
+    TPP: translated_processed_pseudogene
+    SCR: scRNA
+    VLR: vault_RNA
+    TUP: translated_unprocessed_pseudogene
+    MTR: Mt_tRNA
+    MRR: Mt_rRNA
+    2KD: 2kb_downstream_variant
+    2KU: 2kb_upstream_variant
+    UT3: 3_prime_UTR_variant
+    UT5: 5_prime_UTR_variant
+    INT: intron_variant
+    UNK: unknown
+    SYN: synonymous_variant
+    MRT: start_retained_variant
+    STR: stop_retained_variant
+    MIS: missense_variant
+    CSS: complex_substitution
+    STL: stop_lost
+    SPL: splice_site_variant
+    STG: stop_gained
+    FSD: frameshift_truncation
+    FSI: frameshift_elongation
+    INI: inframe_insertion
+    IND: inframe_deletion
+    MLO: start_lost
+    EXL: exon_loss_variant
+    TAB: transcript_ablation
+  coding:
+    Y: "Yes"
+can_summarize_by_gene: true
+gene_summary_output_columns:
+- name: num_coding_variants
+  title: Number of Coding Variants
+  type: int
+  width: 100
+  filterable: false
+- name: num_noncoding_variants
+  title: Number of Noncoding Variants
+  type: int
+  width: 120
+  filterable: false
+- name: so
+  title: Sequence Ontology
+  type: string
+  width: 120
+  category: single
+  filterable: true
+- name: all_so
+  title: All Sequence Ontologies
+  type: string
+  width: 90
+  filterable: false
+requires_opencravat: '>=1.8.1'
+requires:
+- hg38wgs
+release_note:
+  1.9.6: more fix on utr and coding
+  1.7.5: added some fixes.
+  1.7.4: correct gene level summarization
+  1.7.3: UniProt SwissProt only
+  1.7.2: removed incomplete transcripts.
+  1.7.1: mRNA sequence update
+  1.7.0: hg38 handles noncoding transcripts.
+  1.6.1: updated data with fix on - strand gene cds starting or ending at mrna start or end.
+  1.6.0: added c. and p. notation. uses wgs.
+  1.5.6: does not use wgs.
+  1.5.2: added test.
+  1.5.0: next-generation hg38 mapper 1st phase
+  0.0.11: transcripts are the same as in the old hg38.
+  0.0.7: parallelization and primary transcript choice change
+  0.0.6: py version works with 3.6 diskdb and 3.7 memory db
+  0.0.4: binaries for platforms
+  0.0.2: works with python and cython

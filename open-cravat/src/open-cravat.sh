@@ -32,7 +32,7 @@ main() {
         addtlAnnotators=false
     fi
 
-    containerRef='karchinlab/opencravat:latest'
+    containerRef='karchinlab/opencravat:dxapp'
     docker pull $containerRef
 
     # The following line(s) use the dx command-line tool to download your file
@@ -100,7 +100,7 @@ main() {
     # Run job
     mkdir job
     mv $input_fn job
-    runArgs=(oc run "$input_fn" "--package" "$package" "-l" "$genome")
+    runArgs=(oc run "$input_fn" "--package" "$package" "-l" "$genome" "--vcfanno")
     if [ $addtlAnnotators = true ]
     then
         runArgs+=("-a" ${annotators[@]})
@@ -113,14 +113,33 @@ main() {
         $containerRef ${runArgs[@]}
 
     # Run vcf report
+    
+    # docker run \
+    #     -v $PWD/md:/mnt/modules \
+    #     -v $PWD/conf:/mnt/conf \
+    #     -v $PWD/job:/tmp/job \
+    #     -w /tmp/job \
+    #     $containerRef oc report "$input_fn".sqlite -t vcf
+
+    input_fn="input.vcf"
+    annoVcfGz=`basename "$input_fn" '.gz'`
+    annoVcfGz=`basename "$input_fn" '.bgz'`
+    annoVcfGz=`basename "$input_fn" '.bz'`
+    annoVcfGz=`basename "$rawFn" '.vcf'`
+    annoVcfGz=$"annoVcfGz".opencravat.vcf.gz
+    annoVcfGzTbi="$annoVcfGz".tbi
+    echo "$rawFn".opencravat.vcf.gz
     docker run \
         -v $PWD/md:/mnt/modules \
-	    -v $PWD/conf:/mnt/conf \
+        -v $PWD/conf:/mnt/conf \
+        -v $PWD/job:/tmp/job \
+        -v $PWD/oc-vcf-anno.py:/oc-vcf-anno.py
+        -w /tmp/job \
+        $containerRef python /oc-vcf-anno.py "$input_fn".sqlite "$input_fn" -b -o "$annoVcfGz"
+    docker run \
         -v $PWD/job:/tmp/job \
         -w /tmp/job \
-        $containerRef oc report "$input_fn".sqlite -t vcf
-    
-    gzip "job/$input_fn.vcf"
+        $containerRef tabix "$annoVcfGz"
 
     # The following line(s) use the utility dx-jobutil-add-output to format and
     # add output variables to your job's output as appropriate for the output
@@ -132,10 +151,13 @@ main() {
     sqlite=$(dx upload "job/$input_fn.sqlite" --brief)
     log=$(dx upload "job/$input_fn.log" --brief)
     err=$(dx upload "job/$input_fn.err" --brief)
-    vcf=$(dx upload "job/$input_fn.vcf.gz" --brief)
+    vcf=$(dx upload "job/$annoVcfGz" --brief)
+    tbi=$(dx upload "job/$annoVcfGzTbi" --brief)
+
 
     dx-jobutil-add-output sqlite "$sqlite" --class=file
     dx-jobutil-add-output log "$log" --class=file
     dx-jobutil-add-output err "$err" --class=file
     dx-jobutil-add-output vcf "$vcf" --class=file
+    dx-jobutil-add-output tbi "$tbi" --class=file
 }
