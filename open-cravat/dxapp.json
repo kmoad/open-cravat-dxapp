@@ -23,7 +23,9 @@
       "optional": true,
       "help": "Analysis package to use",
       "choices":[
+        "default",
         "drug_interaction",
+        "hereditary_cancer",
         "pathogenic",
         "rare_coding",
         "splicing"
@@ -60,6 +62,54 @@
       "class": "array:string",
       "optional": true,
       "help": "Additional annotators to run. Comma delimited list of annotator names"
+    },
+    {
+      "name": "annotator01",
+      "label": "Additional annotator 1",
+      "help": "Additional annotator 1",
+      "class": "string",
+      "optional": true,
+      "choices":["abraom", "alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "brca1_func_assay", "cadd", "cadd_exome", "cancer_genome_interpreter", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgc", "cgd", "cgl", "chasmplus", "chasmplus_mski", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cosmic", "cosmic_gene", "cscape", "cscape_coding", "cvdkp", "dann", "dann_coding", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genehancer", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "grasp", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hgdp", "hpo", "intact", "interpro", "javierre_promoters", "linsight", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mupit", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "ndex", "ndex_chd", "ndex_signor", "omim", "oncokb", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "revel", "rvis", "segway", "segway_adrenal", "segway_blood", "segway_brain", "segway_breast", "segway_esc", "segway_esc_derived", "segway_fat", "segway_gi_colon", "segway_gi_duodenum", "segway_gi_intestine", "segway_gi_rectum", "segway_gi_stomach", "segway_heart", "segway_ipsc", "segway_kidney", "segway_liver", "segway_lung", "segway_muscle", "segway_muscle_leg", "segway_ovary", "segway_placenta", "segway_skin", "segway_stromal_connective", "segway_thymus", "segway_vascular", "sift", "siphy", "spliceai", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot", "vest", "vista_enhancer"]
+    },
+    {
+      "name": "annotator02",
+      "label": "Additional annotator 2",
+      "help": "Additional annotator 2",
+      "class": "string",
+      "optional": true,
+      "choices":["abraom", "alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "brca1_func_assay", "cadd", "cadd_exome", "cancer_genome_interpreter", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgc", "cgd", "cgl", "chasmplus", "chasmplus_mski", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cosmic", "cosmic_gene", "cscape", "cscape_coding", "cvdkp", "dann", "dann_coding", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genehancer", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "grasp", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hgdp", "hpo", "intact", "interpro", "javierre_promoters", "linsight", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mupit", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "ndex", "ndex_chd", "ndex_signor", "omim", "oncokb", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "revel", "rvis", "segway", "segway_adrenal", "segway_blood", "segway_brain", "segway_breast", "segway_esc", "segway_esc_derived", "segway_fat", "segway_gi_colon", "segway_gi_duodenum", "segway_gi_intestine", "segway_gi_rectum", "segway_gi_stomach", "segway_heart", "segway_ipsc", "segway_kidney", "segway_liver", "segway_lung", "segway_muscle", "segway_muscle_leg", "segway_ovary", "segway_placenta", "segway_skin", "segway_stromal_connective", "segway_thymus", "segway_vascular", "sift", "siphy", "spliceai", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot", "vest", "vista_enhancer"]
+    },
+    {
+      "name": "annotator03",
+      "label": "Additional annotator 3",
+      "help": "Additional annotator 3",
+      "class": "string",
+      "optional": true,
+      "choices":["abraom", "alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "brca1_func_assay", "cadd", "cadd_exome", "cancer_genome_interpreter", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgc", "cgd", "cgl", "chasmplus", "chasmplus_mski", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cosmic", "cosmic_gene", "cscape", "cscape_coding", "cvdkp", "dann", "dann_coding", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genehancer", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "grasp", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hgdp", "hpo", "intact", "interpro", "javierre_promoters", "linsight", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mupit", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "ndex", "ndex_chd", "ndex_signor", "omim", "oncokb", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "revel", "rvis", "segway", "segway_adrenal", "segway_blood", "segway_brain", "segway_breast", "segway_esc", "segway_esc_derived", "segway_fat", "segway_gi_colon", "segway_gi_duodenum", "segway_gi_intestine", "segway_gi_rectum", "segway_gi_stomach", "segway_heart", "segway_ipsc", "segway_kidney", "segway_liver", "segway_lung", "segway_muscle", "segway_muscle_leg", "segway_ovary", "segway_placenta", "segway_skin", "segway_stromal_connective", "segway_thymus", "segway_vascular", "sift", "siphy", "spliceai", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot", "vest", "vista_enhancer"]
+    },
+    {
+      "name": "annotator04",
+      "label": "Additional annotator 4",
+      "help": "Additional annotator 4",
+      "class": "string",
+      "optional": true,
+      "choices":["abraom", "alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "brca1_func_assay", "cadd", "cadd_exome", "cancer_genome_interpreter", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgc", "cgd", "cgl", "chasmplus", "chasmplus_mski", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cosmic", "cosmic_gene", "cscape", "cscape_coding", "cvdkp", "dann", "dann_coding", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genehancer", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "grasp", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hgdp", "hpo", "intact", "interpro", "javierre_promoters", "linsight", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mupit", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "ndex", "ndex_chd", "ndex_signor", "omim", "oncokb", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "revel", "rvis", "segway", "segway_adrenal", "segway_blood", "segway_brain", "segway_breast", "segway_esc", "segway_esc_derived", "segway_fat", "segway_gi_colon", "segway_gi_duodenum", "segway_gi_intestine", "segway_gi_rectum", "segway_gi_stomach", "segway_heart", "segway_ipsc", "segway_kidney", "segway_liver", "segway_lung", "segway_muscle", "segway_muscle_leg", "segway_ovary", "segway_placenta", "segway_skin", "segway_stromal_connective", "segway_thymus", "segway_vascular", "sift", "siphy", "spliceai", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot", "vest", "vista_enhancer"]
+    },
+    {
+      "name": "annotator05",
+      "label": "Additional annotator 5",
+      "help": "Additional annotator 5",
+      "class": "string",
+      "optional": true,
+      "choices":["abraom", "alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "brca1_func_assay", "cadd", "cadd_exome", "cancer_genome_interpreter", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgc", "cgd", "cgl", "chasmplus", "chasmplus_mski", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cosmic", "cosmic_gene", "cscape", "cscape_coding", "cvdkp", "dann", "dann_coding", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genehancer", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "grasp", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hgdp", "hpo", "intact", "interpro", "javierre_promoters", "linsight", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mupit", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "ndex", "ndex_chd", "ndex_signor", "omim", "oncokb", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "revel", "rvis", "segway", "segway_adrenal", "segway_blood", "segway_brain", "segway_breast", "segway_esc", "segway_esc_derived", "segway_fat", "segway_gi_colon", "segway_gi_duodenum", "segway_gi_intestine", "segway_gi_rectum", "segway_gi_stomach", "segway_heart", "segway_ipsc", "segway_kidney", "segway_liver", "segway_lung", "segway_muscle", "segway_muscle_leg", "segway_ovary", "segway_placenta", "segway_skin", "segway_stromal_connective", "segway_thymus", "segway_vascular", "sift", "siphy", "spliceai", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot", "vest", "vista_enhancer"]
+    },
+    {
+      "name": "annotator06",
+      "label": "Additional annotator 6",
+      "help": "Additional annotator 6",
+      "class": "string",
+      "optional": true,
+      "choices":["abraom", "alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "brca1_func_assay", "cadd", "cadd_exome", "cancer_genome_interpreter", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgc", "cgd", "cgl", "chasmplus", "chasmplus_mski", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cosmic", "cosmic_gene", "cscape", "cscape_coding", "cvdkp", "dann", "dann_coding", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genehancer", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "grasp", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hgdp", "hpo", "intact", "interpro", "javierre_promoters", "linsight", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mupit", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "ndex", "ndex_chd", "ndex_signor", "omim", "oncokb", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "revel", "rvis", "segway", "segway_adrenal", "segway_blood", "segway_brain", "segway_breast", "segway_esc", "segway_esc_derived", "segway_fat", "segway_gi_colon", "segway_gi_duodenum", "segway_gi_intestine", "segway_gi_rectum", "segway_gi_stomach", "segway_heart", "segway_ipsc", "segway_kidney", "segway_liver", "segway_lung", "segway_muscle", "segway_muscle_leg", "segway_ovary", "segway_placenta", "segway_skin", "segway_stromal_connective", "segway_thymus", "segway_vascular", "sift", "siphy", "spliceai", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot", "vest", "vista_enhancer"]
     }
   ],
   "outputSpec": [
@@ -93,6 +143,15 @@
     {
       "name": "vcf",
       "label": "Annotated VCF Output",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "tbi",
+      "label": "Tabix index",
       "class": "file",
       "patterns": [
         "*"
