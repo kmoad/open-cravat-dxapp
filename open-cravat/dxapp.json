@@ -180,7 +180,7 @@
     "aws:us-east-1": {
       "systemRequirements": {
         "*": {
-          "instanceType": "mem1_ssd1_x8"
+          "instanceType": "mem1_ssd1_x16"
         }
       }
     }
