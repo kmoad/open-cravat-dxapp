@@ -42,6 +42,11 @@ main() {
     input_fn=`dx describe "$input_file" --name`
     dx download "$input_file" -o "$input_fn"
 
+    #debug
+    pwd
+    ls -la .
+    ls -la /opencravat
+
     # Fill in your application code here.
     #
     # To report any recognized errors in the correct format in
@@ -121,21 +126,19 @@ main() {
     #     -w /tmp/job \
     #     $containerRef oc report "$input_fn".sqlite -t vcf
 
-    input_fn="input.vcf"
     annoVcfGz=`basename "$input_fn" '.gz'`
-    annoVcfGz=`basename "$input_fn" '.bgz'`
-    annoVcfGz=`basename "$input_fn" '.bz'`
-    annoVcfGz=`basename "$rawFn" '.vcf'`
-    annoVcfGz=$"annoVcfGz".opencravat.vcf.gz
+    annoVcfGz=`basename "$annoVcfGz" '.bgz'`
+    annoVcfGz=`basename "$annoVcfGz" '.bz'`
+    annoVcfGz=`basename "$annoVcfGz" '.vcf'`
+    annoVcfGz="$annoVcfGz".opencravat.vcf.gz
     annoVcfGzTbi="$annoVcfGz".tbi
-    echo "$rawFn".opencravat.vcf.gz
     docker run \
         -v $PWD/md:/mnt/modules \
         -v $PWD/conf:/mnt/conf \
         -v $PWD/job:/tmp/job \
-        -v $PWD/oc-vcf-anno.py:/oc-vcf-anno.py
+        -v /opencravat:/opencravat \
         -w /tmp/job \
-        $containerRef python /oc-vcf-anno.py "$input_fn".sqlite "$input_fn" -b -o "$annoVcfGz"
+        $containerRef python /opencravat/oc-vcf-anno.py "$input_fn".sqlite "$input_fn" -b -o "$annoVcfGz"
     docker run \
         -v $PWD/job:/tmp/job \
         -w /tmp/job \
