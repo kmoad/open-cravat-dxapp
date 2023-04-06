@@ -33,7 +33,20 @@ The OpenCRAVAT store features over one hundred annotators, which provide informa
 <li> Cancer relevance</li>
 </ul>
 
-To start, you can try a package of in silico prediction methods. Or jump right in and put together your own list of up to six annotators using our drop-down menus. To apply more than six annotators, you can supply a comma-seperated list of annotators in the text field.
+To start, you can try a package of commonly used annotators, which includes:
+
+- gnomad3
+- clinvar
+- phylop
+- revel
+- dbsnp
+- encode_tfbs
+- ncer
+- go
+- cscape
+- dann
+
+Or jump right in and put together your own list of up to six annotators using our drop-down menus. To use more than six annotators, you can supply a comma-seperated list of annotators in the `Annotators` text field.
 
 Such as:
 
@@ -41,16 +54,7 @@ Such as:
 clinvar,dbsnp,loftool
 ```
 
-Short descriptions of available annotators are below. For more detailed and colorful descriptions of each package at:
-
-https://run.opencravat.org
-
-Select **Try as Guest** and click on the **Store** tab.
-
-| Package Name | Description | Included Annotators |
-| ------------ | ------------------- | ------- |
-| get_started | A selection of in silico prediction methods combined with variant population frequencies, Mendelian diseases and gene ontologies | `gnomAD3`, `clinvar`, `GO`, `polyphen2`, `sift`, `chasmplus`, `revel`, `cadd_exome`, `dann_coding` |
-
+Short descriptions of available annotators are below. For more detailed and colorful descriptions of each annotator visit [run.opencravat.org](https://run.opencravat.org), select **Try as Guest** and click on the **Store** tab.
 
 | Annotator Name | Title | Description |
 | - | - | - |
