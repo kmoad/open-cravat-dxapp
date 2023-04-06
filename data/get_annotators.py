@@ -1,3 +1,4 @@
+from cravat import admin_util as au
 import re
 import json
 
@@ -35,12 +36,25 @@ exclude_commercial = [
 
 exclude = exclude_length + exclude_commercial
 
-with open('all-annotators.txt') as f:
-    annots = []
-    for l in f:
-        annot_name = l.strip()
-        exclude_matches = [re.match(_, annot_name) for _ in exclude]
-        if not(any(exclude_matches)):
-            annots.append(annot_name)
-            
-print(json.dumps(annots))
+include_minfos = []
+
+all_annots = au.get_remote_module_infos_of_type('annotator')
+for mname, mdict in all_annots.items():
+	exclude_matches = [re.match(_, mname) for _ in exclude]
+	if not(any(exclude_matches)):
+		include_minfos.append(au.RemoteModuleInfo(mname, **mdict))
+
+print(json.dumps([minfo.name for minfo in include_minfos]))
+print('\n')
+
+
+table = '''
+| Name | Title | Description |
+| - | - | - |
+'''[1:-1]
+
+for minfo in include_minfos:
+	table_row = ' | '+' | '.join((minfo.name, minfo.title, minfo.description))
+	table += '\n'+table_row
+
+print(table)
