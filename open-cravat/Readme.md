@@ -1,47 +1,58 @@
 # OpenCRAVAT
 
-OpenCRAVAT performs genomic variant interpretation including variant impact, annotation, and scoring.
+OpenCRAVAT is a meta-annotator for variant and gene prioritization.
 
-OpenCRAVAT has a modular architecture with a wide variety of annotators that can be selected and run based on the needs of a given study. The modules are made available via the CRAVAT Store and are developed both by the CRAVAT team and the broader variant analysis community. This DNAnexus app uses packages of related modules to streamline the selection of modules.
+OpenCRAVAT has a modular architecture with a wide variety of annotators that can be selected and run based on the needs of a given study. The modules are made available via the CRAVAT Store and are developed both by the CRAVAT team and the broader variant analysis community. 
 
-OpenCRAVAT is a product of the [Karchin Lab](https://karchinlab.org) at [Johns Hopkins University](https://jhu.edu) with funding provided by the National Cancer Institute’s [ITCR](https://itcr.cancer.gov/) program.
+OpenCRAVAT is a product of the [Karchin Lab](https://karchinlab.org) at [Johns Hopkins University](https://jhu.edu) with funding provided by the National Cancer Institute’s [ITCR](https://itcr.cancer.gov/) program through grant U24CA258393.
 
-For more information about OpenCRAVAT, check the the documenatation at:
+For more information about OpenCRAVAT, visit
+
+https://opencravat.org
+
+and/or see detailed documenatation at:
 
 https://open-cravat.readthedocs.io/en/latest/index.html
 
 ## What does this app do?
 
-OpenCRAVAT on DNAnexus will annotate a VCF file with variant consequence, along with annotations from a wide range of modules.
+OpenCRAVAT on DNAnexus will annotate a VCF file with by mapping variants onto transcripts, cDNA and protein sequences, plus variant and gene annotations from a wide range of databases and tools.
 
-## Packages
+## Annotators
 
-To start, you can select a package of related annotators. You can also manually choose annotators below.
+The OpenCRAVAT store features over one hundred annotators, which provide information about:
 
-| Package Name | Description | Included Annotators |
-| ------------ | ------------------- | ------- |
-| most_popular | A starter set of annotators for basic analysis. | `gnomAD3`, `clinvar`, `GO`, `polyphen2`, `sift`, `chasmplus`, `revel`, `cadd_exome`, `dann_coding` |
-| drug_interaction | Annotates variants with potential impact on drug reponse. | `clinvar`, `pharmgkb`, `clingen`, `dgi` |
-| pathogenic | Annotates variants that are associated with disease. |  `clinvar`, `clinvar_acmg`, `denovo`, `gwas_catalog`, `clingen` |
-| rare_coding | Population allele frequency annotation to help find rare variants |  `dbsnp`, `gnomad3`, `go`, `ncbigene` |
-| splicing | This package combines multiple methods to annotate variants that are likely to disrupt splicing. | `dbscsnv`, `spliceai`, `ncbigene` |
+<ul>
+<li> Allele frequency</li> 
+<li> Clinical relevance</li>
+<li> Evolution</li>
+<li> In silico predictions</li>
+<li> Functional studies</li>
+<li> Literature</li>
+<li> Non-coding variants</li>
+<li> Cancer relevance</li>
+</ul>
 
-## Additional Annotators
+To start, you can try a package of in silico prediction methods. Or jump right in and put together your own list of up to six annotators using our drop-down menus. To apply more than six annotators, you can supply a comma-seperated list of annotators in the text field.
 
-The OpenCRAVAT module store features over one hundred annotators which can be included in a run. You can add up to six additional annotators by selecting them from a list.
-
-To add more than size, supply a comma-separated list of annotators in the text field. Such as:
+Such as:
 
 ```
 clinvar,dbsnp,loftool
 ```
 
-For a complete list of annotators, please see the module store of the OpenCRAVAT public web interface at:
+Short descriptions of available annotators are below. For more detailed and colorful descriptions of each package at:
 
-https://run.opencravat.org/submit/nocache/index.html
+https://run.opencravat.org
 
-## Annotators
-| Name | Title | Description |
+Select **Try as Guest** and click on the **Store** tab.
+
+| Package Name | Description | Included Annotators |
+| ------------ | ------------------- | ------- |
+| get_started | A selection of in silico prediction methods combined with variant population frequencies, Mendelian diseases and gene ontologies | `gnomAD3`, `clinvar`, `GO`, `polyphen2`, `sift`, `chasmplus`, `revel`, `cadd_exome`, `dann_coding` |
+
+
+| Annotator Name | Title | Description |
 | - | - | - |
  | alfa | ALFA: Allele Frequency Aggregator | The goal of the ALFA project is to make frequency data from over 1M dbGaP subjects open-access in future releases to facilitate discoveries and interpretations of common and rare variants with biological impacts or causing diseases.
  | alfa_african | ALFA: Allele Frequency Aggregator African | The goal of the ALFA project is to make frequency data from over 1M dbGaP subjects open-access in future releases to facilitate discoveries and interpretations of common and rare variants with biological impacts or causing diseases.
