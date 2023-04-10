@@ -20,10 +20,46 @@ main() {
     set -x
 
     echo "Value of input_file: '$input_file'"
-    echo "Value of package: '$package'"
-    echo "Value of annotators: '${annotators[@]}'"
+    echo "Value of default_annotators: '$default_annotators'"
     echo "Value of genome: '$genome'"
     echo "Value of store_url: '$store_url'"
+    echo "Value of annotator01: '$annotator01'"
+    echo "Value of annotator02: '$annotator02'"
+    echo "Value of annotator03: '$annotator03'"
+    echo "Value of annotator04: '$annotator04'"
+    echo "Value of annotator05: '$annotator05'"
+    echo "Value of annotator06: '$annotator06'"
+    echo "Value of annotators: '${annotators[@]}'"
+
+    if [ $default_annotators = true ]
+    then
+        echo "include default annotators"
+        annotators+=( 'clinvar' \
+                      'gnomad3' \
+                      'phylop' \
+                      'revel' \
+                      'dbsnp' \
+                      'encode_tfbs' \
+                      'ncer' \
+                      'go' \
+                      'cscape' \
+                      'dann' \
+                    )
+    else
+        echo "no default annotators"
+    fi
+
+    if [ -z "$annotator01" ]; then annotators+=("$annotator01"); fi;
+    if [ -z "$annotator02" ]; then annotators+=("$annotator02"); fi;
+    if [ -z "$annotator03" ]; then annotators+=("$annotator03"); fi;
+    if [ -z "$annotator04" ]; then annotators+=("$annotator04"); fi;
+    if [ -z "$annotator05" ]; then annotators+=("$annotator05"); fi;
+    if [ -z "$annotator06" ]; then annotators+=("$annotator06"); fi;
+
+    # annotators+=("$annotator01" "$annotator02" "$annotator03" \
+    #              "$annotator06" "$annotator05" "$annotator04")
+
+    echo "Full value of annotators: '${annotators[@]}'"
 
     if (( ${#annotators[@]} ));
     then
@@ -84,14 +120,6 @@ main() {
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
         $containerRef oc module install-base
-    docker run \
-        -v $PWD/md:/mnt/modules \
-	    -v $PWD/conf:/mnt/conf \
-        $containerRef oc module install -y vcfreporter
-    docker run \
-        -v $PWD/md:/mnt/modules \
-	    -v $PWD/conf:/mnt/conf \
-        $containerRef oc module install -y $package
     
     # Install additional annotators
     if [ $addtlAnnotators = true ]
@@ -105,7 +133,7 @@ main() {
     # Run job
     mkdir job
     mv $input_fn job
-    runArgs=(oc run "$input_fn" "--package" "$package" "-l" "$genome" "--vcfanno")
+    runArgs=(oc run "$input_fn" "-l" "$genome" "--vcfanno")
     if [ $addtlAnnotators = true ]
     then
         runArgs+=("-a" ${annotators[@]})
