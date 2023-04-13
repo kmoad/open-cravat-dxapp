@@ -34,7 +34,8 @@ main() {
     if [ $default_annotators = true ]
     then
         echo "include default annotators"
-        annotators+=( 'clinvar' \
+        annotators+=( \
+                      'clinvar' \
                       'gnomad3' \
                       'phylop' \
                       'revel' \
@@ -49,15 +50,12 @@ main() {
         echo "no default annotators"
     fi
 
-    if [ -z "$annotator01" ]; then annotators+=("$annotator01"); fi;
-    if [ -z "$annotator02" ]; then annotators+=("$annotator02"); fi;
-    if [ -z "$annotator03" ]; then annotators+=("$annotator03"); fi;
-    if [ -z "$annotator04" ]; then annotators+=("$annotator04"); fi;
-    if [ -z "$annotator05" ]; then annotators+=("$annotator05"); fi;
-    if [ -z "$annotator06" ]; then annotators+=("$annotator06"); fi;
-
-    # annotators+=("$annotator01" "$annotator02" "$annotator03" \
-    #              "$annotator06" "$annotator05" "$annotator04")
+    if [ ! -z "$annotator01" ]; then annotators+=("$annotator01"); fi;
+    if [ ! -z "$annotator02" ]; then annotators+=("$annotator02"); fi;
+    if [ ! -z "$annotator03" ]; then annotators+=("$annotator03"); fi;
+    if [ ! -z "$annotator04" ]; then annotators+=("$annotator04"); fi;
+    if [ ! -z "$annotator05" ]; then annotators+=("$annotator05"); fi;
+    if [ ! -z "$annotator06" ]; then annotators+=("$annotator06"); fi;
 
     echo "Full value of annotators: '${annotators[@]}'"
 
@@ -114,14 +112,14 @@ main() {
     sed -i conf/cravat-system.yml -e '/store_url/d'
     echo "store_url: $store_url" >> conf/cravat-system.yml
 
-    # Download modules
+    # Install base modules
     mkdir md
     docker run \
         -v $PWD/md:/mnt/modules \
 	    -v $PWD/conf:/mnt/conf \
         $containerRef oc module install-base
     
-    # Install additional annotators
+    # Install annotators
     if [ $addtlAnnotators = true ]
     then
         docker run \
@@ -145,15 +143,7 @@ main() {
         -w /tmp/job \
         $containerRef ${runArgs[@]}
 
-    # Run vcf report
-    
-    # docker run \
-    #     -v $PWD/md:/mnt/modules \
-    #     -v $PWD/conf:/mnt/conf \
-    #     -v $PWD/job:/tmp/job \
-    #     -w /tmp/job \
-    #     $containerRef oc report "$input_fn".sqlite -t vcf
-
+    # Build output vcf
     annoVcfGz=`basename "$input_fn" '.gz'`
     annoVcfGz=`basename "$annoVcfGz" '.bgz'`
     annoVcfGz=`basename "$annoVcfGz" '.bz'`
