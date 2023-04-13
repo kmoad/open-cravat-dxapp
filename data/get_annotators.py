@@ -4,7 +4,7 @@ import json
 
 # Exclude annotators with too many sub-annotators
 exclude_length = [
-    r'segway.*',
+    r'segway_.*',
     r'chasmplus_.*',
 ]
 
@@ -54,7 +54,7 @@ table = '''
 '''[1:-1]
 
 for minfo in include_minfos:
-	table_row = ' | '+' | '.join((minfo.name, minfo.title, minfo.description))
+	table_row = ' | '+' | '.join((minfo.name, minfo.title, minfo.description))+' |'
 	table += '\n'+table_row
 
 print(table)
