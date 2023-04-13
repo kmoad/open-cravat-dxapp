@@ -23,16 +23,18 @@ Use [dx build](https://documentation.dnanexus.com/user/helpstrings-of-sdk-comman
 dx build open-cravat
 ```
 
-On the DNAnexus platform GUI, the applet will appear at the top level of your projects files. To run it, simply click the applet.
+On the DNAnexus platform GUI, the applet will appear at the top level of your project's files. 
 
-The applet can also be run using [`dx run`](https://documentation.dnanexus.com/user/helpstrings-of-sdk-command-line-utilities#run)
-
-To update the applet, run the `-f` flag to `dx build`.
+To update the applet, add the `--overwrite` or `-f` flag to `dx build`.
 
 ```
-dx build -f open-cravat
+dx build --overwrite open-cravat
 ```
 
 ## Running
+
+To run the applet in the GUI, simply find the applet in your project's files and click it.
+
+The applet can also be run from a terminal using [`dx run`](https://documentation.dnanexus.com/user/helpstrings-of-sdk-command-line-utilities#run)
 
 For documentation of the app, and a detailed explanation of parameters, see the main app readme at [`open-cravat/Readme.md`](./open-cravat/Readme.md)
