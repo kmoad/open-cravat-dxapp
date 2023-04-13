@@ -18,6 +18,12 @@ https://open-cravat.readthedocs.io/en/latest/index.html
 
 OpenCRAVAT on DNAnexus will annotate a VCF file with by mapping variants onto transcripts, cDNA and protein sequences, plus variant and gene annotations from a wide range of databases and tools.
 
+## Screenshot of parameters
+
+See below the screenshot for a detailed description of the parameters.
+
+![](./screenshot-run-arguments.png)
+
 ## Annotators
 
 The OpenCRAVAT store features over one hundred annotators, which provide information about:
