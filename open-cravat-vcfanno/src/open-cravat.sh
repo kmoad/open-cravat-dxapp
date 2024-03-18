@@ -150,7 +150,7 @@ main() {
     # annoVcfGz=`basename "$annoVcfGz" '.bz'`
     # annoVcfGz=`basename "$annoVcfGz" '.vcf'`
     # annoVcfGz="$annoVcfGz".opencravat.vcf.gz
-    annoVcfGz="$input_fn".oc.vcf.bgz
+    annoVcfGz="$input_fn".oc.vcf.gz
     annoVcfGzTbi="$annoVcfGz".tbi
     # docker run \
     #     -v $PWD/md:/mnt/modules \
