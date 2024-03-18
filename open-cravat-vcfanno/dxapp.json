@@ -1,0 +1,152 @@
+{
+  "name": "open-cravat-vcfanno",
+  "title": "OpenCRAVAT VCF Annotation",
+  "summary": "Modular VCF annotation",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "inputSpec": [
+    {
+      "name": "input_file",
+      "label": "Variants",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*.vcf.gz"
+      ],
+      "help": "Input file containing variants"
+    },
+    {
+      "name": "default_annotators",
+      "label": "Include default annotators",
+      "class": "boolean",
+      "optional": false,
+      "help": "Run a set of common annotators"
+    },
+    {
+      "name": "genome",
+      "label": "Genome",
+      "class": "string",
+      "optional": false,
+      "choices":[
+        "hg38",
+        "hg19",
+        "hg18"
+      ],
+      "help": "Genome of input file"
+    },
+    {
+      "name": "store_url",
+      "label": "Module Store URL",
+      "class": "string",
+      "optional": false,
+      "choices":[
+        "https://opencravat-store-aws.s3.amazonaws.com",
+        "https://opencravat-store-eu-west-2.s3.amazonaws.com",
+        "https://store.opencravat.org"
+      ],
+      "default":"https://opencravat-store-aws.s3.amazonaws.com",
+      "help": "Module source"
+    },
+    {
+      "name": "annotator01",
+      "label": "Additional annotator 1",
+      "help": "Additional annotator 1",
+      "class": "string",
+      "optional": true,
+      "choices": ["alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgd", "cgl", "chasmplus", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cscape", "cscape_coding", "cvdkp", "dann", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hpo", "intact", "interpro", "javierre_promoters", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "omim", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "rvis", "segway", "siphy", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot"]
+    },
+    {
+      "name": "annotator02",
+      "label": "Additional annotator 2",
+      "help": "Additional annotator 2",
+      "class": "string",
+      "optional": true,
+      "choices": ["alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgd", "cgl", "chasmplus", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cscape", "cscape_coding", "cvdkp", "dann", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hpo", "intact", "interpro", "javierre_promoters", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "omim", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "rvis", "segway", "siphy", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot"]
+    },
+    {
+      "name": "annotator03",
+      "label": "Additional annotator 3",
+      "help": "Additional annotator 3",
+      "class": "string",
+      "optional": true,
+      "choices": ["alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgd", "cgl", "chasmplus", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cscape", "cscape_coding", "cvdkp", "dann", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hpo", "intact", "interpro", "javierre_promoters", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "omim", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "rvis", "segway", "siphy", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot"]
+    },
+    {
+      "name": "annotator04",
+      "label": "Additional annotator 4",
+      "help": "Additional annotator 4",
+      "class": "string",
+      "optional": true,
+      "choices": ["alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgd", "cgl", "chasmplus", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cscape", "cscape_coding", "cvdkp", "dann", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hpo", "intact", "interpro", "javierre_promoters", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "omim", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "rvis", "segway", "siphy", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot"]
+    },
+    {
+      "name": "annotator05",
+      "label": "Additional annotator 5",
+      "help": "Additional annotator 5",
+      "class": "string",
+      "optional": true,
+      "choices": ["alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgd", "cgl", "chasmplus", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cscape", "cscape_coding", "cvdkp", "dann", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hpo", "intact", "interpro", "javierre_promoters", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "omim", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "rvis", "segway", "siphy", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot"]
+    },
+    {
+      "name": "annotator06",
+      "label": "Additional annotator 6",
+      "help": "Additional annotator 6",
+      "class": "string",
+      "optional": true,
+      "choices": ["alfa", "alfa_african", "alfa_asian", "alfa_european", "alfa_latin_american", "alfa_other", "aloft", "arrvars", "biogrid", "cancer_hotspots", "cardioboost", "ccr", "ccre_screen", "cgd", "cgl", "chasmplus", "civic", "civic_gene", "clingen", "clinpred", "clinvar", "clinvar_acmg", "cscape", "cscape_coding", "cvdkp", "dann", "dbcid", "dbscsnv", "dbsnp", "dbsnp_common", "denovo", "dgi", "encode_tfbs", "ensembl_regulatory_build", "esp6500", "ess_gene", "exac_gene", "fathmm", "fathmm_mkl", "fathmm_xf", "fathmm_xf_coding", "fitcons", "flank_seq", "funseq2", "genocanyon", "gerp", "geuvadis", "ghis", "gnomad", "gnomad3", "gnomad3_counts", "gnomad_gene", "go", "gtex", "gwas_catalog", "haploreg_afr", "haploreg_amr", "haploreg_asn", "haploreg_eur", "hg19", "hpo", "intact", "interpro", "javierre_promoters", "litvar", "loftool", "lrt", "mavedb", "metalr", "metasvm", "mirbase", "mitomap", "mutation_assessor", "mutationtaster", "mutpanning", "mutpred1", "mutpred_indel", "ncbigene", "ncer", "ncrna", "omim", "pangalodb", "pharmgkb", "phastcons", "phdsnpg", "phi", "phylop", "polyphen2", "prec", "provean", "pseudogene", "pubmed", "regulomedb", "repeat", "rvis", "segway", "siphy", "swissprot_binding", "swissprot_domains", "swissprot_ptm", "target", "thousandgenomes", "thousandgenomes_ad_mixed_american", "thousandgenomes_african", "thousandgenomes_east_asian", "thousandgenomes_european", "thousandgenomes_south_asian", "trinity", "uk10k_cohort", "uniprot"]
+    },
+    {
+      "name": "annotators",
+      "label": "Additional annotators",
+      "class": "array:string",
+      "optional": true,
+      "help": "Additional annotators to run. Comma delimited list of annotator names"
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "vcf",
+      "label": "Annotated VCF Output",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "tbi",
+      "label": "Tabix index",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 24
+      }
+    },
+    "interpreter": "bash",
+    "file": "src/open-cravat.sh",
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0"
+  },
+  "access": {
+    "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    }
+  }
+}
