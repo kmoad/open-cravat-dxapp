@@ -66,7 +66,7 @@ main() {
         addtlAnnotators=false
     fi
 
-    containerRef='karchinlab/opencravat:vcfanno'
+    containerRef='karchinlab/opencravat:2.6.0'
     docker pull $containerRef
 
     # The following line(s) use the dx command-line tool to download your file
